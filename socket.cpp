@@ -103,7 +103,11 @@ bool Socket::accept ( Socket& new_socket ) const
 
 bool Socket::send ( const std::string s ) const
 {
-    int status = ::send ( m_sock, s.c_str(), s.size(), MSG_NOSIGNAL );
+	std::cout << s << std::endl;
+	 char st[5] = {0x00, 0x01, 0xff, 0xff, 0xe0};
+    //int status = ::send ( m_sock, s.c_str(), s.size(), MSG_NOSIGNAL );
+	 std::cout << std::string(st).c_str();
+    int status = ::send ( m_sock, st, 5, MSG_NOSIGNAL );
     if ( status == -1 )
     {
         return false;
