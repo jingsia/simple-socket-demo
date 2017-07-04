@@ -20,6 +20,8 @@ int main ( int argc, char* argv[] )
             ServerSocket new_sock;
             server.accept ( new_sock );
 
+			server.getRemoteInfo();
+
             try
             {
                 while ( true )

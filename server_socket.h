@@ -7,7 +7,7 @@
 #include "socket.h"
 
 
-class ServerSocket : private Socket
+class ServerSocket : public Socket
 {
 public:
 
