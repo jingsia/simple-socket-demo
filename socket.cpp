@@ -188,3 +188,18 @@ void Socket::set_non_blocking ( const bool b )
             F_SETFL,opts );
 
 }
+
+void Socket::getAddr( struct sockaddr_in * addr )
+{
+	socklen_t l = sizeof(struct sockaddr_in);
+	getpeername(m_sock, (struct sockaddr *)addr, &l);                                                                       
+}
+
+void Socket::getRemoteInfo()
+{
+	struct sockaddr_in peerAddr;
+	getAddr(&peerAddr);
+	int remoteIP = ntohl(peerAddr.sin_addr.s_addr);
+	short int remotePort = ntohs(peerAddr.sin_port);
+	std::cout << "remote ip ==>" << remoteIP << "remote port ==>" << remotePort << std::endl;
+}

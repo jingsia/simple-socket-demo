@@ -45,6 +45,9 @@ public:
         return m_sock != -1;
     }
 
+	void getAddr( struct sockaddr_in * addr );
+	void getRemoteInfo();
+
 private:
 
     int m_sock;
